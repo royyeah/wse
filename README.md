@@ -1,4 +1,4 @@
-Web, Science and Engineering Assignments
+IN4252 Assignments
 ===
 
 This project contains my code for the assignments to complete the TU Delft course *IN4252 Web, Science and Engineering*.
