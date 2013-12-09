@@ -13,8 +13,9 @@ This project contains my code for the assignments to complete the TU Delft cours
 
 Python 2.7.x should be installed and I made use of the packages below. Packages can be easily installed using [pip][1]. MySQLdb can't be installed using pip, but the windows binaries can also be found at the same [site][2].
 
-* langid
-* tweepy
+* twitter\_weka\_assignment
+ * langid
+ * tweepy
 
 [1]: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
 [2]: http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python
