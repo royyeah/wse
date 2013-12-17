@@ -1,10 +1,16 @@
-'''
-Created on 24 nov. 2013
+# Copyright 2013 Roy van der Valk, see LICENSE for details
 
-@author: royyeah
-'''
-# Settings
-consumer_key=''
-consumer_secret=''
-access_token=''
-access_token_secret=''
+# Twitter Settings
+twitter_consumer_key=''
+twitter_consumer_secret=''
+twitter_access_token=''
+twitter_access_token_secret=''
+
+# MySQL Settings
+mysql_host=''
+mysql_user=''
+mysql_passwd=''
+
+# OpenCalais Settings
+calais_user = ''
+calais_api_key = ''
