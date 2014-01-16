@@ -38,14 +38,14 @@ for bank in searchQueriesPerBank:
         
         if len(results) == 0:
             print "\n\n\n"
-            continue
-        
-        for result in results:
-            max_id = result.id
-            if result.retweet_count >= retweet_threshold:
-                print "\n======= TWEET ======="
-                print "ID: " + str(result.id)
-                print "USER: " + str(result.user.name)
-                print "DATE: " + str(result.created_at)
-                print "RETWEETS: " + str(result.retweet_count)
-                print "TEXT: " + str(result.text)
+            break #Break out of while loop and start with the next bank
+        else:
+            for result in results:
+                max_id = result.id
+                if result.retweet_count >= retweet_threshold:
+                    print "\n======= TWEET ======="
+                    print "ID: " + str(result.id)
+                    print "USER: " + str(result.user.name)
+                    print "DATE: " + str(result.created_at)
+                    print "RETWEETS: " + str(result.retweet_count)
+                    print "TEXT: " + str(result.text)
