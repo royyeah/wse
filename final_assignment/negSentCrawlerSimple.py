@@ -16,22 +16,17 @@ auth = OAuthHandler(config.twitter_consumer_key, config.twitter_consumer_secret)
 auth.set_access_token(config.twitter_access_token, config.twitter_access_token_secret)
 api = API(auth)
 
-# KEYWORDS
-with open("negative-words-small-sample.txt") as f:
-    lines = f.readlines()
-# Remove lines starting with ; and remove line breaks
-negWords = [ line for line in lines if not line.startswith(';') ]
-negWords = [ negWord.replace('\n', '').replace('\r', '') for negWord in negWords ]
+# QUERIES
 searchQueriesPerBank = {
     'Bank of America': "(@BofA_Help OR #BankofAmerica OR #BofA OR \"Bank of America\")",
     'Barclays': "@Barclays OR @BarclaysOnline OR #Barclays OR Barclays",
     'Citi': "@Citi OR @AskCiti OR #Citi OR Citi"
 }
-addNegSearchQuery = " AND (fail OR fuck OR hate OR poor OR shit OR suck)"
+negSearchQuery = " AND (fail OR fuck OR hate OR poor OR shit OR suck)"
 
 started = time.time()
 for bank in searchQueriesPerBank:
-    searchQuery = searchQueriesPerBank[bank] + addNegSearchQuery
+    searchQuery = searchQueriesPerBank[bank] + negSearchQuery
     print "> QUERY: " + searchQuery
     max_id = 0
     while True:
@@ -42,7 +37,7 @@ for bank in searchQueriesPerBank:
             results = api.search(q = searchQuery, max_id=max_id - 1, count=100, lang='en')
         
         if len(results) == 0:
-            print "\n\n\n\n\n\n\n"
+            print "\n\n\n"
             continue
         
         for result in results:
@@ -54,5 +49,3 @@ for bank in searchQueriesPerBank:
                 print "DATE: " + str(result.created_at)
                 print "RETWEETS: " + str(result.retweet_count)
                 print "TEXT: " + str(result.text)
-                    
-        
